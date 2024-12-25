@@ -27,9 +27,11 @@ int read_adc(char *adc_path)
     if(ret < 0)
     {
         perror("read adc");
+        close(fd);
         return -1;
     }
 
+    close(fd);
     return atoi(adc_string);
 }
 
